@@ -1,1 +1,24 @@
-/* You can add global styles to this file, and also import other style files */
+    /* ----- Pistas: solo sirven en esta página, NO pasan a Angular ----- */
+    body:has(#pistas:checked) [data-angular] {
+      position: relative;
+      outline: 2px dashed #d63384;
+      outline-offset: 3px;
+    }
+    body:has(#pistas:checked) [data-angular]::after {
+      content: attr(data-angular);
+      position: absolute;
+      top: -0.85rem;
+      left: 0.25rem;
+      z-index: 5;
+      padding: 0 0.35rem;
+      border-radius: 0.25rem;
+      background: #d63384;
+      color: #fff;
+      font: 600 0.7rem/1.4 ui-monospace, Consolas, monospace;
+      white-space: nowrap;
+    }
+    body:has(#pistas:checked) .pista-abajo::after { top: auto; bottom: -0.95rem; }
+    body:has(#pistas:checked) .pista-dcha::after { left: auto; right: 0; }
+    body:has(#pistas:checked) [data-angular^="✂"] { outline-color: #adb5bd; opacity: 0.5; }
+    body:has(#pistas:checked) [data-angular^="✂"]::after { background: #6c757d; }
+    body:has(#pistas:checked) .solo-pista { display: block !important; }
